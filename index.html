@@ -2,11 +2,41 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>VueJS</title>
 </head>
 <body>
-    
+<div id="app">
+    <h1>{{ title }}</h1> <!-- cara 1 -->
+
+    <p v-text="content"></p> <!-- cara 2 -->
+
+    <p v-bind:title="menu">Contoh binding</p>
+
+    <ul>
+        <li v-for="todo in items">{{ todo }}</li>
+    </ul>
+    <input type="text" v-model="item">
+    <button @click="items.push(item)">Add Item</button>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    new Vue({
+        el:'#app',
+
+        data: {
+            title: 'My Title',
+            content: 'My text.',
+            menu: 'Contoh Binding disini',
+            item: '',
+            items: [
+                'Item2',
+                'Item1',
+            ],
+        }
+    });
+</script>
+
 </body>
 </html>
